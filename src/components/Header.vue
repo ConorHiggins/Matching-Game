@@ -1,16 +1,28 @@
 <template>
   <div class="header">
-    <h1>Find The Pairs</h1>
+    <h1>
+      <a href="#/">
+        Find The Pairs
+      </a>
+
+      <a
+        v-tooltip="'View on Github'"
+        href="https://github.com/ConorHiggins/Matching-Game"
+        target="_blank">
+        <i class="fab fa-github"></i>
+      </a>
+    </h1>
 
     <div class="header__controls">
       <span class="header__score">
         Score: {{score}}
       </span>
 
-      <span class="header__action"
-        @click="toggleSettings">
+      <a class="header__action"
+        v-tooltip="'Settings'"
+        href="#/settings">
         <i class="fas fa-cog"></i>
-      </span>
+      </a>
     </div>
   </div>
 </template>
@@ -46,6 +58,12 @@
     padding: 15px;
     background-color: $header--bg;
     color: white;
+
+    a {
+      color: inherit;
+      margin-left: 15px;
+      text-decoration: none;
+    }
 
     &__controls {
       display: flex;

@@ -81,7 +81,6 @@
     watch: {
       selection(newValue) {
         if (newValue.length >= 2){
-          console.log('decrease it!');
           setTimeout(() => {
             this.decrease(5);
           }, 500)
