@@ -1,24 +1,6 @@
-# game
+# Matching Game
 
 ## Project setup
-```
-yarn install
-```
+Simple pair matching "game" built in Vue and Vuex. Images are generated using the https://api.adorable.io/avatars free API service. 
 
-### Compiles and hot-reloads for development
-```
-yarn serve
-```
-
-### Compiles and minifies for production
-```
-yarn build
-```
-
-### Lints and fixes files
-```
-yarn lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+![image](https://user-images.githubusercontent.com/369038/87608719-8bed5f80-c6f8-11ea-92be-03fa7519fdc2.png)
