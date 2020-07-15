@@ -1,0 +1,96 @@
+<template>
+  <div class="controls">
+    <div class="controls__fieldset">
+      <label>
+        Difficulty
+      </label>
+
+      <div class="controls__radios">
+        <label for="easy">
+          <input
+            id="easy"
+            type="radio"
+            value="3"
+            :checked="(cardCount == 3)"
+            @change="updateCount(3)">
+          <span>Easy</span>
+        </label>
+
+        <label for="medium">
+          <input
+            id="medium"
+            type="radio"
+            value="4"
+            :checked="(cardCount == 4)"
+            @change="updateCount(4)">
+          <span>Medium</span>
+        </label>
+
+        <label for="hard">
+          <input
+            id="hard"
+            type="radio"
+            value="6"
+            :checked="(cardCount == 6)"
+            @change="updateCount(6)">
+          <span>Hard</span>
+        </label>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+  import { mapState, mapMutations } from 'vuex'
+
+  export default {
+    name: 'Controls',
+    computed: {
+      // mix the getters into computed with object spread operator
+      ...mapState([
+        'cardCount',
+        'animationStyle'
+      ])
+    },
+    methods: {
+      ...mapMutations([
+        'changeCards',
+        'changeAnimation'
+      ]),
+      updateCount (v) {
+        this.changeCards(v);
+      },
+      updateAnimation (e) {
+        this.changeAnimation(e.target.value);
+      }
+    }
+  }
+</script>
+
+<!-- Add "scoped" attribute to limit CSS to this component only -->
+<style scoped lang="scss">
+  .controls {
+    width: 320px;
+    padding: 15px 30px;
+    display: flex;
+    flex-direction: column;
+    background-color: #f2f2f2;
+    border-radius: 8px;
+    margin-left: 15px;
+
+    &__fieldset {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 15px;
+    }
+
+    &__fieldset label {
+      margin-bottom: 5px;
+    }
+
+    &__radios {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+</style>
