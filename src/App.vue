@@ -3,24 +3,36 @@
     <Header/>
     <div class="wrapper">
       <Board/>
-      <Controls/>
+      <Controls
+        v-if="showSettings"/>
     </div>
   </div>
 </template>
 
 <script>
-import Header from './components/Header.vue'
-import Board from './components/Board.vue'
-import Controls from './components/Controls.vue'
+  import Header from './components/Header.vue'
+  import Board from './components/Board.vue'
+  import Controls from './components/Controls.vue'
+  import {mapGetters, mapActions} from 'vuex'
 
-export default {
-  name: 'App',
-  components: {
-    Header,
-    Board,
-    Controls,
+  export default {
+    name: 'App',
+    components: {
+      Header,
+      Board,
+      Controls,
+    },
+    methods: {
+      ...mapActions([
+        'toggleSettings'
+      ])
+    },
+    computed: {
+      ...mapGetters([
+        'showSettings'
+      ])
+    }
   }
-}
 </script>
 
 <style lang="scss">

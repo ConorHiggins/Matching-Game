@@ -5,10 +5,10 @@ Vue.use(Vuex)
 
 export const store = new Vuex.Store({
   state: {
+    showSettings: false,
     score: 0,
     running: false,
     cardCount: 3,
-    animationStyle: 'fade',
     startTime: Date.now(), // Used as a modifier that also shuffles the cards on each level
     matched: [],
     selection: []
@@ -17,8 +17,8 @@ export const store = new Vuex.Store({
     changeCards(state, cardCount) {
       state.cardCount = cardCount
     },
-    changeAnimation(state, animationStyle) {
-      state.animationStyle = animationStyle
+    toggleSettings(state){
+      state.showSettings = !state.showSettings;
     },
     resetGame(state, payload=false){
       state.matched = [];
@@ -60,8 +60,8 @@ export const store = new Vuex.Store({
     changeCards(context, payload) {
       context.commit('changeCards', payload);
     },
-    changeAnimation(context, payload) {
-      context.commit('changeAnimation', payload);
+    toggleSettings(context) {
+      context.commit('toggleSettings');
     },
     resetGame(context, payload) {
       context.commit('resetGame', payload);
@@ -85,7 +85,7 @@ export const store = new Vuex.Store({
   },
   getters: {
     cardCount: state => state.cardCount,
-    animationStyle: state => state.animationStyle,
+    showSettings: state => state.showSettings,
     startTime: state => state.startTime,
     matched: state => state.matched,
     selection: state => state.selection,

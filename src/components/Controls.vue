@@ -1,9 +1,9 @@
 <template>
   <div class="controls">
     <div class="controls__fieldset">
-      <label>
+      <h4>
         Difficulty
-      </label>
+      </h4>
 
       <div class="controls__radios">
         <label for="easy">
@@ -48,21 +48,16 @@
     computed: {
       // mix the getters into computed with object spread operator
       ...mapState([
-        'cardCount',
-        'animationStyle'
+        'cardCount'
       ])
     },
     methods: {
       ...mapMutations([
-        'changeCards',
-        'changeAnimation'
+        'changeCards'
       ]),
       updateCount (v) {
         this.changeCards(v);
       },
-      updateAnimation (e) {
-        this.changeAnimation(e.target.value);
-      }
     }
   }
 </script>
@@ -94,6 +89,10 @@
     &__radios {
       display: flex;
       flex-direction: column;
+    }
+
+    &__radios span {
+      margin-left: 8px;
     }
   }
 </style>
