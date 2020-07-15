@@ -32,12 +32,14 @@
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
+  @import "../styles/mixins/colors";
+
   .header {
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 15px;
-    background-color: #ff3d00;
+    background-color: $header--bg;
     color: white;
 
     &__score {
@@ -46,7 +48,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      background-color: #dd2c00;
+      background-color: $header-score--bg;
       color: white;
       padding: 0 15px;
       border-radius: 8px;

@@ -24,18 +24,43 @@
 
 @keyframes rotate-out-center {
     0% {
-      -webkit-transform: rotate(0) scale(0.9);
+        -webkit-transform: rotate(0) scale(0.9);
               transform: rotate(0) scale(0.9);
-      opacity: 1;
+        opacity: 1;
     }
     50% {
-      -webkit-transform: rotate(-180deg) scale(0.5);
+        -webkit-transform: rotate(-180deg) scale(0.5);
               transform: rotate(-180deg) scale(0.5);
-      opacity: 0;
+        opacity: 0;
     }
     100% {
-      -webkit-transform: rotate(-360deg) scale(0.9);
+        -webkit-transform: rotate(-360deg) scale(0.9);
               transform: rotate(-360deg) scale(0.9);
-      opacity: 0.7;
+        opacity: 0.7;
     }
-  }
+}
+
+
+@mixin color-shift($base, $amount: 10) {
+    -webkit-animation: color-shift-frames 0.8s linear infinite alternate both;
+            animation: color-shift-frames 0.8s linear infinite alternate both;
+
+    @-webkit-keyframes color-shift-frames {
+        0% {
+            background-color: $base;
+        }
+        100% {
+            background-color: darken($color: $base, $amount: $amount);
+        }
+    }
+    @keyframes color-shift-frames {
+        0% {
+            background-color: $base;
+        }
+        100% {
+            background-color: darken($color: $base, $amount: $amount);
+        }
+    }
+}
+
+

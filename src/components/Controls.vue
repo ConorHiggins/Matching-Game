@@ -69,12 +69,15 @@
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
+
+  @import "../styles/mixins/colors";
+
   .controls {
     width: 320px;
     padding: 15px 30px;
     display: flex;
     flex-direction: column;
-    background-color: #f2f2f2;
+    background-color: $settings--bg;
     border-radius: 8px;
     margin-left: 15px;
 

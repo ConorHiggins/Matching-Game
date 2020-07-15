@@ -9,6 +9,7 @@ export const store = new Vuex.Store({
     running: false,
     cardCount: 3,
     animationStyle: 'fade',
+    startTime: Date.now(), // Used as a modifier that also shuffles the cards on each level
     matched: [],
     selection: []
   },
@@ -23,6 +24,7 @@ export const store = new Vuex.Store({
       state.matched = [];
       state.selection = [];
       state.score = 0;
+      state.startTime = Date.now();
       state.running = payload;
     },
     increaseScore(state, payload) {
@@ -84,6 +86,7 @@ export const store = new Vuex.Store({
   getters: {
     cardCount: state => state.cardCount,
     animationStyle: state => state.animationStyle,
+    startTime: state => state.startTime,
     matched: state => state.matched,
     selection: state => state.selection,
     score: state => state.score,

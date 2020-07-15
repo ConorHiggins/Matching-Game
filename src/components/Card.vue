@@ -94,6 +94,7 @@
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
 
+  @import "../styles/mixins/colors";
   @import "../styles/mixins/animations";
 
   $self: ".card";
@@ -105,10 +106,10 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #ffab91;
+    background-color: $card--bg;
     position: relative;
     cursor: pointer;
-    border: 4px solid #ff3e02;
+    border: 4px solid $card--border;
 
     &__cover {
       display: flex;

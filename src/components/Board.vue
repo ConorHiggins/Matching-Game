@@ -9,10 +9,11 @@
         Score: {{score}}
       </h2>
 
-      <a href="javascript:;"
+      <button
+        class="board__restart"
         @click="restart">
         Play Again
-      </a>
+      </button>
     </div>
     <div class="board__cards"
       v-if="(gameStatus == 'active')">
@@ -39,6 +40,7 @@
         'score',
         'cardCount',
         'matched',
+        'startTime',
         'selection'
       ]),
       visibleCards: (vm) => {
@@ -47,7 +49,7 @@
         const mapped = baseValues.map((v) => {
           return {
             key: v,
-            avatar: `https://api.adorable.io/avatars/128/match${v}.png`
+            avatar: `https://api.adorable.io/avatars/128/${vm.startTime}_match${v}.png`
           }
         });
 
@@ -91,6 +93,9 @@
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
+  @import "../styles/mixins/colors";
+  @import "../styles/mixins/animations";
+
   h1 {
     margin: 0;
   }
@@ -100,7 +105,7 @@
     flex: 1 0 auto;
     display: flex;
     flex-direction: column;
-    padding: 0 15px;
+    padding: 15px;
 
     &__overlay {
       flex: 1 0 auto;
@@ -113,7 +118,24 @@
     &__cards {
       display: grid;
       grid-gap: 15px;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 2fr));
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+
+    &__restart {
+      height: 72px;
+      min-width: 240px;
+      font-size: 32px;
+      background-color: $color--primary;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      margin-top: 30px;
+      cursor: pointer;
+      @include pulse;
+
+      &:hover {
+        @include color-shift($color--primary, 20);
+      }
     }
   }
 </style>
